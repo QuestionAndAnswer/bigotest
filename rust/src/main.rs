@@ -25,29 +25,29 @@ fn bake_random_array(n: usize) -> Vec<i32> {
 }
 
 fn main() {
-    // otest::runner::run_o_test(
-    //     "seq_search",
-    //     || {
-    //         fn search(data: &mut Vec<i32>, target: i32) {
-    //             for d in data {
-    //                 if *d == target {
-    //                     *d = 0;
-    //                     break;
-    //                 }
-    //             }
-    //         }
+    otest::runner::run_o_test(
+        "seq_search",
+        || {
+            fn search(data: &mut Vec<i32>, target: i32) {
+                for d in data {
+                    if *d == target {
+                        *d = 0;
+                        break;
+                    }
+                }
+            }
 
-    //         fn alg(data: &mut Vec<i32>) {
-    //             for _ in 0..10 {
-    //                 search(data, 100)
-    //             }
-    //         }
+            fn alg(data: &mut Vec<i32>) {
+                for _ in 0..10 {
+                    search(data, 100)
+                }
+            }
 
-    //         return otest::runner::run_n(alg, bake_array, 10000000, POINTS);
-    //     },
-    //     PREHEAT,
-    //     REPATES,
-    // );
+            return otest::runner::run_n(alg, bake_array, 10000000, POINTS);
+        },
+        PREHEAT,
+        REPATES,
+    );
 
     otest::runner::run_o_test(
         "fast_power",
@@ -79,73 +79,73 @@ fn main() {
         REPATES,
     );
 
-    // otest::runner::run_o_test(
-    //     "qsort",
-    //     || {
-    //         fn partition(arr: &mut Vec<i32>, low: usize, high: usize) -> usize {
-    //             let pivot = arr[high];
-    //             let mut i = low;
-    //             for j in low..high {
-    //                 if arr[j] < pivot {
-    //                     arr.swap(i, j);
-    //                     i += 1;
-    //                 }
-    //             }
-    //             arr.swap(i, high);
+    otest::runner::run_o_test(
+        "qsort",
+        || {
+            fn partition(arr: &mut Vec<i32>, low: usize, high: usize) -> usize {
+                let pivot = arr[high];
+                let mut i = low;
+                for j in low..high {
+                    if arr[j] < pivot {
+                        arr.swap(i, j);
+                        i += 1;
+                    }
+                }
+                arr.swap(i, high);
 
-    //             return i;
-    //         }
+                return i;
+            }
 
-    //         fn sort(arr: &mut Vec<i32>, low: isize, high: isize) {
-    //             if low < high {
-    //                 let p = partition(arr, low as usize, high as usize) as isize;
-    //                 sort(arr, low, p - 1);
-    //                 sort(arr, p + 1, high);
-    //             }
-    //         }
+            fn sort(arr: &mut Vec<i32>, low: isize, high: isize) {
+                if low < high {
+                    let p = partition(arr, low as usize, high as usize) as isize;
+                    sort(arr, low, p - 1);
+                    sort(arr, p + 1, high);
+                }
+            }
 
-    //         fn alg(data: &mut Vec<i32>) {
-    //             let mut data_copy = vec![0; data.len()];
+            fn alg(data: &mut Vec<i32>) {
+                let mut data_copy = vec![0; data.len()];
 
-    //             for _ in 0..4 {
-    //                 data_copy.copy_from_slice(data);
+                for _ in 0..4 {
+                    data_copy.copy_from_slice(data);
 
-    //                 sort(&mut data_copy, 0, (data.len() - 1).try_into().unwrap());
-    //             }
-    //         }
+                    sort(&mut data_copy, 0, (data.len() - 1).try_into().unwrap());
+                }
+            }
 
-    //         return otest::runner::run_n(alg, bake_random_array, 1000000, POINTS);
-    //     },
-    //     PREHEAT,
-    //     REPATES,
-    // );
+            return otest::runner::run_n(alg, bake_random_array, 1000000, POINTS);
+        },
+        PREHEAT,
+        REPATES,
+    );
 
-    // otest::runner::run_o_test(
-    //     "bubble_sort",
-    //     || {
-    //         fn sort(data: &mut Vec<i32>) {
-    //             for _ in 0..data.len() {
-    //                 for j in 0..data.len() - 1 {
-    //                     if data[j] > data[j + 1] {
-    //                         data.swap(j, j + 1)
-    //                     }
-    //                 }
-    //             }
-    //         }
+    otest::runner::run_o_test(
+        "bubble_sort",
+        || {
+            fn sort(data: &mut Vec<i32>) {
+                for _ in 0..data.len() {
+                    for j in 0..data.len() - 1 {
+                        if data[j] > data[j + 1] {
+                            data.swap(j, j + 1)
+                        }
+                    }
+                }
+            }
 
-    //         fn alg(data: &mut Vec<i32>) {
-    //             let mut data_copy = vec![0; data.len()];
+            fn alg(data: &mut Vec<i32>) {
+                let mut data_copy = vec![0; data.len()];
 
-    //             for _ in 0..4 {
-    //                 data_copy.copy_from_slice(data);
+                for _ in 0..4 {
+                    data_copy.copy_from_slice(data);
 
-    //                 sort(data);
-    //             }
-    //         }
+                    sort(data);
+                }
+            }
 
-    //         return otest::runner::run_n(alg, bake_random_array, 10000, POINTS);
-    //     },
-    //     PREHEAT,
-    //     REPATES,
-    // );
+            return otest::runner::run_n(alg, bake_random_array, 10000, POINTS);
+        },
+        PREHEAT,
+        REPATES,
+    );
 }
