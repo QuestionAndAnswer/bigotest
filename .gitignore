@@ -1,0 +1,9 @@
+*_data_*.csv
+__pycache__
+build
+target
+*.S
+.vscode
+.venv
+**gen**
+coverage
