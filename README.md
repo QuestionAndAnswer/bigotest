@@ -13,4 +13,4 @@ make
 
 # Plotting
 
-I've used Jupiter notebook in VS Code, therefore all the plotting should work there.
+Plotted in `Jupiter` notebook in `VS Code`, `python 3.10.6` therefore sould work there.

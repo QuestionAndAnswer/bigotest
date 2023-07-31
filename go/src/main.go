@@ -55,7 +55,7 @@ func main() {
 			}
 		}
 
-		return otest.RunN(alg, bakeN, 100000000, POINTS)
+		return otest.RunN(alg, bakeN, 10000000, POINTS)
 	}, PREHEATES, REPEATES)
 
 	otest.RunOTest("qsort", func() []otest.Measurement {

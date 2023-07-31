@@ -73,7 +73,7 @@ fn main() {
                 }
             }
 
-            return otest::runner::run_n(alg, bake_n, 100000000, POINTS);
+            return otest::runner::run_n(alg, bake_n, 10000000, POINTS);
         },
         PREHEAT,
         REPATES,
